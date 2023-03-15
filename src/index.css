@@ -42,4 +42,8 @@
     .Bg-Primary {
         background-color: #006838;
     }
+
+    .Bg-Secondary {
+        background-color: #00683852
+    }
 }
