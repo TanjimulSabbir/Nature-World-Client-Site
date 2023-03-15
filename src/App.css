@@ -1,9 +1,19 @@
-h1 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Fraunces', serif;
   font-weight: 700;
 }
 
 p {
-  font-family: 'Lora', serif;
+  font-family: 'Lato', serif;
   font-weight: 600;
+}
+
+.active {
+  color: #006838;
+  background: transparent;
 }

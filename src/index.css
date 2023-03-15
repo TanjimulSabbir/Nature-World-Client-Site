@@ -7,42 +7,39 @@
 @tailwind utilities;
 
 
-@layer base {
-    h1 {
-        @apply text-5xl;
+@layer components {
+    .UniversalHeadingText {
+        @apply text-3xl sm:text-4xl md:text-3xl lg:text-5xl
     }
 
-    h2 {
-        @apply text-4xl;
+    .UniversalPadding {
+        @apply px-4 sm:px-8 md:px-4 mid-lg:px-14 lg:px-24
     }
 
-    h3 {
-        @apply text-3xl;
+    .UniversalMargin {
+        @apply mx-4 sm:mx-8 md:mx-4 mid-lg:mx-14 lg:mx-24
     }
 
-    h4 {
-        @apply text-2xl;
+    .Btn-Primary {
+        @apply btn Bg-Primary rounded-3xl px-8 border-2 border-[#006838] hover:border-[#006838] transition duration-500 hover:bg-transparent hover:Text-Primary cursor-pointer
     }
 
-    h5 {
-        @apply text-xl;
+    .Btn-Outline {
+        @apply btn bg-transparent rounded-3xl px-8 border-2 border-[#006838] Text-Primary transition duration-300 hover:Bg-Primary hover:border-[#006838] hover:text-white
     }
 
-    small {
-        @apply text-[10px]
-    }
 }
 
-@layer components {
-    .btn-primary {
-        @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+@layer utilities {
+    .Bg-Gradient {
+        background-image: linear-gradient(120deg, #0068381A 0%, #62A73B00 100%);
     }
 
-    .UniversalPadding {
-        @apply px-4 sm:px-8 md:px-14 mid-lg:px-20 lg:px-24
+    .Text-Primary {
+        color: #006838;
     }
 
-    .UniversalPadding {
-        @apply mx-4 sm:mx-8 md:mx-14 mid-lg:mx-20 lg:mx-24
+    .Bg-Primary {
+        background-color: #006838;
     }
 }
