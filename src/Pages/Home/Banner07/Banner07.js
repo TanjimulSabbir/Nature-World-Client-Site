@@ -1,5 +1,6 @@
 import React from 'react';
-import CustomerReviews from './CustomerReviews';
+import Customer from './Customer';
+
 
 const Banner07 = () => {
     return (
@@ -11,9 +12,7 @@ const Banner07 = () => {
                         <h1 className='UniversalHeadingText'>What Our <span className='Text-Primary'>Customer Say</span></h1>
                     </div>
                     <div className='mt-10'>
-                        <div>
-                            <CustomerReviews />
-                        </div>
+                        <Customer></Customer>
                     </div>
                 </div>
             </div>

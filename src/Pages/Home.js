@@ -6,6 +6,7 @@ import Banner04 from './Home/Banner04/Banner04';
 import Banner05 from './Home/Banner05/Banner05';
 import Banner06 from './Home/Banner06/Banner06';
 import Banner07 from './Home/Banner07/Banner07';
+import Banner08 from './Home/Banner08/Banner08';
 
 const Home = () => {
     return (
@@ -17,6 +18,7 @@ const Home = () => {
             <Banner05></Banner05>
             <Banner06></Banner06>
             <Banner07></Banner07>
+            <Banner08></Banner08>
         </div>
     );
 };
