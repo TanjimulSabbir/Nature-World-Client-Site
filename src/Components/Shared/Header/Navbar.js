@@ -17,12 +17,12 @@ const Navbar = () => {
     const btnStyle = "font-semibold transition hover:bg-transparent hover:Text-Primary duration-100"
     const Menu = <>
         <li><NavLink className={btnStyle} to="/">Home</NavLink></li>
-        <li><NavLink className={btnStyle} to="/b">About Us</NavLink></li>
-        <li><NavLink className={btnStyle} to="/c">Shop</NavLink></li>
-        <li><NavLink className={btnStyle} to="/d">Blog</NavLink></li>
-        <li><NavLink className={btnStyle} to="/e">Contact Us</NavLink></li>
-        <li><NavLink className={btnStyle} to="/f"><ShoppingCart /></NavLink></li>
-        <li><NavLink className={`text-2xl ${btnStyle}`} to="/g"><BiSearch /></NavLink></li>
+        <li><NavLink className={btnStyle} to="/about">About Us</NavLink></li>
+        <li><NavLink className={btnStyle} to="/shop">Shop</NavLink></li>
+        <li><NavLink className={btnStyle} to="/blog">Blog</NavLink></li>
+        <li><NavLink className={btnStyle} to="/contact">Contact Us</NavLink></li>
+        <li><NavLink className={btnStyle} to="#"><ShoppingCart /></NavLink></li>
+        <li><NavLink className={`text-2xl ${btnStyle}`} to="#"><BiSearch /></NavLink></li>
     </>
 
     return (
