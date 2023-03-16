@@ -18,24 +18,30 @@ const Banner03 = () => {
 
     return (
         <div className='Bg-Gradient UniversalPadding py-24'>
-            <div>
-                <div className='flex justify-center items-center flex-col' >
-                    <img className='w-28 h-28' src={leaf} alt="" />
+            <div className='mt-10'>
+                <div className='flex justify-center items-center flex-col relative' >
+                    <img className='w-28 h-28 absolute bottom-4' src={leaf} alt="" />
                     <h1 className='UniversalHeadingText'>New <span className='Text-Primary'>Product</span></h1>
                 </div>
 
-                <div className='grid mt-8 space-y-10 md:space-y-0 md:space-x-6 grid-cols-1 md:grid-cols-2 mid-lg:grid-cols-3 lg:grid-cols-4'>
+                <div className='grid mt-8 justify-center items-center grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-6'>
                     {
                         AllProducts.map(product => {
                             return (
-                                <div key={product?.title}>
-                                    <div onClick={() => navigate("/shop")} className='Bg-Secondary mt-14 relative rounded-lg h-[500px] shadow-2xl cursor-pointer'>
-                                        <img className='' src={product?.img} alt="" />
+                                <div key={product.title} onClick={() => navigate("/shop")}
+                                    className='relative Bg-light-green mt-14 pb-14 flex justify-center items-center border border-[#00683821] rounded-lg w-full 
+                                    h-[600px] cursor-pointer'>
+                                    <div>
+                                        <div className='flex justify-center items-center'>
+                                            <img className='' src={product?.img} alt="" />
+                                        </div>
 
-                                        <div className='absolute top-[60%] mx-4 space-y-3'>
+                                        <div className='mt-8 px-3'>
                                             <h1 className='text-xl text-center'>{product?.title}</h1>
-                                            <h3 className='text-xl text-center'>{product?.price}</h3>
-                                            <Link className='Btn-Primary absolute top-28 w-full mx-auto' to="/shop">Add to Cart</Link>
+                                            <h3 className='text-xl text-center mt-3'>{product?.price}</h3>
+                                            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2">
+                                                <Link className='Btn-Primary w-full px-5' to="/shop">Add to Cart</Link>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
