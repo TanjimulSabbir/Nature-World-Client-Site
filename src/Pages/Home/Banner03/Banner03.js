@@ -21,7 +21,7 @@ const Banner03 = () => {
             <div>
                 <div className='flex justify-center items-center flex-col' >
                     <img className='w-28 h-28' src={leaf} alt="" />
-                    <h1 className='UniversalHeadingText'>New Product</h1>
+                    <h1 className='UniversalHeadingText'>New <span className='Text-Primary'>Product</span></h1>
                 </div>
 
                 <div className='grid mt-8 space-y-10 md:space-y-0 md:space-x-6 grid-cols-1 md:grid-cols-2 mid-lg:grid-cols-3 lg:grid-cols-4'>
