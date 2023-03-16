@@ -1,0 +1,37 @@
+[
+    {
+        "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Wanda-C.-Gutierrez.png",
+        "customerName": "John Smith",
+        "title": "Beautiful and healthy plants!",
+        "description": "I ordered a few plants from this website and I am so happy with my purchase. The plants arrived quickly and were in great condition. They are thriving in my home and adding so much beauty to my space.",
+        "rating": 5
+    },
+    {
+        "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Daniel-J.-Woodley.png",
+        "customerName": "Jane Doe",
+        "title": "Excellent customer service",
+        "description": "I had a question about one of the plants I was interested in purchasing and reached out to customer service. They were so helpful and responsive, and I ended up ordering several plants that I am now in love with!",
+        "rating": 4.5
+    },
+    {
+        "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Frances-C.-Borel.png",
+        "customerName": "Mark Johnson",
+        "title": "Great selection and quality",
+        "description": "I have ordered from this website multiple times and have never been disappointed. The selection is great and the quality of the plants is top-notch. I highly recommend this site to any plant lovers out there!",
+        "rating": 4
+    },
+    {
+        "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Frances-C.-Borel.png",
+        "customerName": "Sarah Lee",
+        "title": "Fast shipping and well-packaged",
+        "description": "I was a bit nervous about ordering plants online, but this website exceeded my expectations. The plants were shipped quickly and arrived in great condition thanks to the careful packaging. I will definitely be ordering from here again!",
+        "rating": 4.5
+    },
+    {
+        "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Frances-C.-Borel.png",
+        "customerName": "David Kim",
+        "title": "Healthy and happy plants",
+        "description": "I have been ordering plants from this website for a few months now and have been consistently impressed with the quality of the plants. They always arrive healthy and happy, and have added so much joy to my home.",
+        "rating": 5
+    }
+]
