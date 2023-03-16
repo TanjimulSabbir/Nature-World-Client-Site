@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 import NavbarAvator from './NavbarAvator';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Firebase/Firebase.init.config';
 import { BiSearch } from "react-icons/bi";
 import Logo from "../../../Pages/Assets/NavBarLogo/PlantyLogo.png"
 import ShoppingCart from './ShopingCart/ShoppingCart';
+import { FiAlignJustify } from 'react-icons/fi';
+import { GrClose } from 'react-icons/gr';
 
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const [sidebar, setSidebar] = useState(false)
-
 
     const btnStyle = "font-semibold transition hover:bg-transparent hover:Text-Primary duration-100"
     const Menu = <>
@@ -28,8 +29,10 @@ const Navbar = () => {
         <div className="navbar bg-white">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost mid-lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                    <label onClick={() => setSidebar(!sidebar)} tabIndex={0} className="btn btn-ghost mid-lg:hidden">
+                        {
+                            sidebar ? <GrClose className='text-2xl' /> : <FiAlignJustify className='text-2xl' />
+                        }
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         {Menu}
