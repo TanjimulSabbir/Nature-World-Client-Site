@@ -4,20 +4,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../Components/AuthContext/AuthProvider';
-import auth from '../Firebase/Firebase.init.config';
+import auth from '../Components/Firebase/Firebase.init.config';
+
 
 
 const useBooking = () => {
     const [user] = useAuthState(auth);
-    const { UserSignOut } = useContext(AuthContext)
-    const { data: AllBooking = [], isLoading, refetch, isError } = useQuery({
+    const { UserSignOut } = useContext(AuthContext);
+
+    const { data: AllBooking, isLoading, refetch, isError } = useQuery({
         queryKey: ['BookingData',],
         queryFn: async () => {
             try {
                 if (user) {
                     axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
                     const response = await axios.get(`http://localhost:5000/booking/${user.email}`)
-                    return response.data.data
+                    console.log(response.data.data, "Booking Data")
+                    return response.data.data;
                 }
             } catch (error) {
                 const errorStatus = [401, 403].includes(error.response.data.status);

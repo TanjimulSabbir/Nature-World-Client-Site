@@ -11,6 +11,7 @@ import SignUp from "../../Pages/SignUp/SignUp";
 import UpdateProfile from "../Shared/UpdateProfile/UpdateProfile";
 import ShopDetails from "../../Pages/ShopDetails/ShopDetails";
 import Booking from "../../Pages/Booking/Booking";
+import Payment from "../../Pages/Payment/Payment";
 
 const Router = createBrowserRouter([
     {
@@ -60,6 +61,10 @@ const Router = createBrowserRouter([
             {
                 path: '/booking',
                 element: <Booking></Booking>
+            },
+            {
+                path: '/payment',
+                element: <Payment></Payment>
             }
         ]
     }

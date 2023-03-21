@@ -56,16 +56,19 @@ const UserDBProvider = ({ children }) => {
     }
 
     // Booking Delete from Booking_Form
-    const BookingDelete = async (UserData) => {
-        const conformDelete = window.confirm("Are you sure to Delete this Booking?")
+    const BookingDelete = async ({ id, title }) => {
+        const conformDelete = window.confirm("Are you sure to Delete this Booking?");
+        toast(id)
         if (!conformDelete) {
             return toast('😍')
         }
         try {
             axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-            const response = await axios.delete(`https://tourist-booking-server.vercel.app/booking/${user?.email}`, { data: UserData })
+            const response = await axios.delete(`http://localhost:5000/booking/${user?.email}`,
+                { data: { id: id } })
             if (response.status === 200) {
-                toast.success(response.data.message);
+                toast.success(`${title} Deleted Successfully`);
+                return navigate(from, { replace: true })
             }
         } catch (error) {
             const errorStatus = [401, 403].includes(error.response.data.status);
@@ -76,15 +79,16 @@ const UserDBProvider = ({ children }) => {
         }
     }
     // Boooking Cart
-    const BookingCart = (AllBooking) => {
+    const BookingCart = async (AllBooking) => {
         const [isOpen, setIsOpen] = useState(false)
-        const Product = []
-        const TotalPrice = AllBooking?.reduce((total, Product) => {
-            const price = parseFloat(Product?.price?.split('$')[1]);
-            const quantity = parseInt(Product.Quantity);
-            Product.push(Product.Quantity)
-            return total + price * quantity;
-        }, 0);
+        let TotalItems = 0;
+        const TotalPrice = await AllBooking?.reduce((total, product, i) => {
+            const price = parseFloat(product.price.split('$')[1]);
+            const quantity = parseFloat(product.Quantity);
+            TotalItems = TotalItems + quantity
+            const TotalPrice = total + price * quantity
+            return TotalPrice;
+        }, 0)
 
         return (
             <div className='dropdown drop-shadow dropdown-end z-50' onClick={() => setIsOpen(!isOpen)}>
@@ -99,7 +103,7 @@ const UserDBProvider = ({ children }) => {
                     <div className="card-body">
                         <h2 className="card-title font-diplayFair font-bold">{AllBooking.length} {AllBooking.length > 1 && 'items' || 'item'}</h2>
                         <p className='font-openSans '>Your Total Amount is ${TotalPrice}.</p>
-                        <p className='font-openSans '>You have Booked {AllBooking.length} Room{AllBooking.length > 1 && 's'} and Total {Product.reduce((acc, curr) => acc + Number(curr), 0)} Product.</p>
+                        <p className='font-openSans '>You have Added to Cart {AllBooking.length} Product {AllBooking.length > 1 && 's'} and Total {TotalItems} Product Items.</p>
                     </div>
                 </div>
             </div>
