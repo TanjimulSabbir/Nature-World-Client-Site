@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Banner08 = () => {
     return (
@@ -18,7 +19,7 @@ const Banner08 = () => {
                             <div className='flex space-x-2 mt-2 sm:mt-5 md:mt-8'>
                                 <input type="text" placeholder="Enter Your Email Here"
                                     className="w-full py-2 px-4 rounded-[30px] bg-white" />
-                                <p className='Btn-Outline bg-white hover:border-white' >Subscribe</p></div>
+                                <p onClick={() => toast.success("Thanks for Subscribe. Stay with Us.")} className='Btn-Outline bg-white hover:border-white' >Subscribe</p></div>
                         </div>
                     </div>
                 </div>

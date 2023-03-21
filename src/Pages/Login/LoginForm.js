@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../AuthContext/AuthProvider";
 import { BsInfoCircle } from "react-icons/bs";
 import AdminPassword from "./AdminPassword";
+import { AuthContext } from "../../Components/AuthContext/AuthProvider";
 
 const LoginForm = () => {
   const [show, setShow] = useState(false);
@@ -59,7 +59,7 @@ const LoginForm = () => {
           </div>
 
           <div className="form-control mt-4">
-            <button className="btn btn-primary">Login</button>
+            <button className="Btn-Primary">Login</button>
           </div>
           <p className="text-sm link link-hover">
             Are you new here? <Link to={"/signup"} className='link text-black'>Create an account</Link>

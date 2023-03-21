@@ -4,7 +4,8 @@ import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithEmailAndP
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import PageLoading from "../../Components/Shared/Loading/Loading";
-import auth from "../../Firebase/Firebase.init.config";
+import auth from "../Firebase/Firebase.init.config";
+
 
 export const AuthContext = createContext();
 
@@ -29,12 +30,12 @@ function AuthProvider({ children }) {
     // Create Jwt Token
     const CreateJwtToken = async (UserData) => {
         try {
-            const res = await axios.post(`https://tourist-booking-server.vercel.app/jwt`,
+            const res = await axios.post(`http://localhost:5000/jwt`,
                 { UserData });
             if (res.status === 201) {
                 localStorage.setItem("accessToken", res.data.data);
                 navigate(from, { replace: true });
-                AddLoginUser(UserData);
+                // AddLoginUser(UserData);
             }
         } catch (error) {
             const errorStatus = [401, 403].includes(error.response.data.status);
@@ -67,7 +68,7 @@ function AuthProvider({ children }) {
     async function AddLoginUser(UserData) {
         try {
             axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-            const res = await axios.post(`https://tourist-booking-server.vercel.app/alluser/${UserData.email}`, { UserData })
+            const res = await axios.post(`http://localhost:5000/alluser/${UserData.email}`, { UserData })
             if (res.status === 201) {
                 return;
             }
@@ -79,7 +80,7 @@ function AuthProvider({ children }) {
             const errorStatus = [401, 403].includes(error.response.data.status);
             if (errorStatus) {
                 signOut()
-                toast.success("user sign-out successfully")
+                return toast.success("user sign-out successfully")
             }
             else {
                 toast.error(error.response.data.message)
@@ -97,10 +98,12 @@ function AuthProvider({ children }) {
                     email: res.user.email
                 }
                 console.log(UserData, "userData")
-                if (UserData) {
-                    CreateJwtToken(UserData);
+                if (!UserData) {
+                    return;
                 }
+                CreateJwtToken(UserData);
                 toast.success('Login Successful');
+                navigate(from, { replace: true })
             }
         } catch (err) {
             if (LoginError) {
@@ -116,7 +119,7 @@ function AuthProvider({ children }) {
     const UserSignOut = async () => {
         await signOut();
         toast.success("User Sign-out Successfully")
-        navigate("/login")
+        return navigate("/login")
     }
 
     const AuthInfo = { CreateEmailUser, EmailLogin, UserSignOut };

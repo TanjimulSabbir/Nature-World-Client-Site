@@ -1,11 +1,12 @@
 import React from 'react'
-import { useUpdatePassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useUpdatePassword } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init.config';
 import PageLoading from '../Loading/Loading';
 
 const ModalUpdatePassword = () => {
+    const [user] = useAuthState(auth)
     const navigate = useNavigate();
     const [updatePassword, updating, error] = useUpdatePassword(auth);
 
@@ -17,6 +18,10 @@ const ModalUpdatePassword = () => {
         const result = regex.test(password); // true
 
         if (result) {
+            const ReservedUser = ['tanjimulislamsabbir02@gmail.com', 'tanzimulislamsabbir@gmail.com']
+            if (ReservedUser.includes(user?.email)) {
+                return toast("You can't Update Password in this User")
+            }
             const Update = async () => {
                 const success = await updatePassword(password);
                 if (success) {

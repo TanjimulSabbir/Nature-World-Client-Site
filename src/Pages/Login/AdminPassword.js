@@ -3,6 +3,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from 'react-toastify';
 
 const AdminPassword = () => {
+
     return (
         <div>
             {/* Put this part before </body> tag */}

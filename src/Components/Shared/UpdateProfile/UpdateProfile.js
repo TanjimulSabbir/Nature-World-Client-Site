@@ -27,7 +27,7 @@ function UpdateProfile() {
         const url = event.target.url.value.trim();
 
         if (!(name && email && url)) {
-            return toast('Provided valid input')
+            return toast('Provide Valid Input')
         }
         const ReservedUser = ['tanjimulislamsabbir02@gmail.com', 'tanzimulislamsabbir@gmail.com']
         if (ReservedUser.includes(user?.email)) {
@@ -38,17 +38,22 @@ function UpdateProfile() {
             if (res) {
                 await UpdateDBUser({ name, photoURL: url })
                 toast.success("Updated Succesfully")
-                navigate(from, { replace: true })
+                return navigate(from, { replace: true })
             }
         }
         catch (err) {
             toast.error("Failed to update profile")
         }
     }
+
     const handleDelete = () => {
         const ConfirmDelete = window.confirm('Do you want to Delete your Account?')
         if (!ConfirmDelete) {
-            return toast("Thanks for back!😍")
+            return toast("Welcome to Come Back!😍")
+        }
+        const ReservedUser = ['tanjimulislamsabbir02@gmail.com', 'tanzimulislamsabbir@gmail.com']
+        if (ReservedUser.includes(user?.email)) {
+            return toast("You can't Delete this user Profile")
         }
         try {
             async function DeletingUser() {
@@ -92,23 +97,23 @@ function UpdateProfile() {
 
     const style = 'btn w-full border-none p-2 rounded text-black'
     return (
-        <div className='py-14'>
+        <div className='py-14 Bg-light-green border-b border-[#c0f6c0]'>
             <div className='flex flex-col-reverse justify-center items-center'>
-                <div className='w-full mt-16 max-w-sm md:max-w-md'>
-                    <div>
+                <div className='w-full mt-16'>
+                    <div className='flex flex-col space-y-3 items-center justify-center'>
                         <p onClick={handleVerification}
-                            disabled={Date.now() - lastClick < 4 * 1000} className={`bg-green-600 ${style}`}>
+                            disabled={Date.now() - lastClick < 4 * 1000} className="Btn-Primary w-72">
                             Send Email Verification</p>
 
-                        <p className={`bg-green-600  ${style} my-5 cursor-pointer`}>
-                            <label htmlFor="my-modal-6" className='cursor-pointer' onClick={() => setIsOpen(true)}>Update Password</label>
+                        <p className={``}>
+                            <label htmlFor="my-modal-6" className='Btn-Primary w-72' onClick={() => setIsOpen(true)}>Update Password</label>
                         </p>
 
-                        <p onClick={handleDelete} className={`bg-red-600 ${style}`}>
+                        <p onClick={handleDelete} className="Btn-Primary w-72 bg-red-600 border-red-600">
                             Detele Account</p>
                     </div>
                 </div>
-                <form onSubmit={handleUpdate} className="w-full p-6 max-w-sm sm:max-w-md border rounded">
+                <form onSubmit={handleUpdate} className="w-full p-6 max-w-sm sm:max-w-md shadow-lg rounded-lg">
                     <div>
                         <h1 className='font-displayFair text-black text-3xl text-center'>
                             Update Profile</h1>
@@ -117,20 +122,20 @@ function UpdateProfile() {
                                 <span className="label-text">Email</span>
                             </label>
                             <input name='email' type="text" placeholder={user && (user?.emailVerified
-                                ? "Your email is verified" : "Verify Your Email Address.") || 'No User'} className="input input-bordered" />
+                                ? "Your email is verified" : "Verify Your Email Address.") || 'No User'} className="input input-bordered Bg-light-green" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">User Name</span>
                             </label>
                             <input name='name' type="text"
-                                placeholder={user ? user.displayName : "User Name"} className="input input-bordered" />
+                                placeholder={user ? user.displayName : "User Name"} className="input input-bordered Bg-light-green" />
                         </div>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Profile Photo</span>
                             </label>
-                            <input name='url' type="url" placeholder={(user && (user?.photoURL ? "Set URL" : "You Have Not Yet Uploaded Profile Photo.") || 'No User')} className="input input-bordered" />
+                            <input name='url' type="url" placeholder={(user && (user?.photoURL ? "Set URL" : "You Have Not Yet Uploaded Profile Photo.") || 'No User')} className="input input-bordered Bg-light-green" />
                         </div>
                         <div className="form-control mt-6">
                             <button type='submit' disabled={user ? false : true} className="btn btn-primary">Update Profile</button>

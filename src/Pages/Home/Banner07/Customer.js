@@ -33,9 +33,9 @@ const Customer = () => {
                 </div>
             </div>
             <div className="flex justify-center w-full mt-10 py-2 gap-2">
-                <a href="#slide1" className="btn btn-xs focus:bg-green-600">{dot}</a>
-                <a href="#slide2" className="btn btn-xs focus:bg-green-600">{dot}</a>
-                <a href="#slide3" className="btn btn-xs focus:bg-green-600">{dot}</a>
+                <a href="#slide1" className="flex w-3 h-3 bg-gray-900 rounded-full"></a>
+                <a href="#slide2" className="flex w-3 h-3 bg-gray-200 rounded-full"></a>
+                <a href="#slide3" className="flex w-3 h-3 bg-teal-500 rounded-full"></a>
             </div>
         </div>
     );

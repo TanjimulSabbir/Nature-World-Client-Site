@@ -3,7 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../AuthContext/AuthProvider";
+import { AuthContext } from "../../Components/AuthContext/AuthProvider";
+
 
 const SignUpForm = () => {
   const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();

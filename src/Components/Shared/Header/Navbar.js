@@ -34,13 +34,13 @@ const Navbar = () => {
                             sidebar ? <GrClose className='text-2xl' /> : <FiAlignJustify className='text-2xl' />
                         }
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-full">
                         {Menu}
                     </ul>
                 </div>
                 <Link className='UniversalMargin' to="/"><img src={Logo} alt="" /> </Link>
             </div>
-            <div className="navbar-center py-2 mr-4 hidden mid-lg:flex mid-lg:justify-center">
+            <div className={`navbar-center py-2 mr-4 hidden mid-lg:flex mid-lg:justify-center ${sidebar ? "block" : "hidden"}`}>
                 <ul className="menu menu-horizontal text-black">
                     {Menu}
                 </ul>
