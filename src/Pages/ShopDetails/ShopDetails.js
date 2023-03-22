@@ -1,13 +1,16 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 import Products from "../../JsonFiles/Products.json"
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { toast } from 'react-toastify';
 import { DBContext } from '../../Components/DataBaseContext/UserDBProvider';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Components/Firebase/Firebase.init.config';
 
 const ShopDetails = () => {
-    const [quantity, setQuantity] = useState(0);
+    // const [quantity, setQuantity] = useState(0);
+    const [user] = useAuthState(auth)
     const { AddBooking } = useContext(DBContext)
     const [Btn, setBtn] = useState(1);
     const params = useParams();
@@ -49,7 +52,7 @@ const ShopDetails = () => {
         if (Btn === 0) {
             return toast("Product Quantity Empty!")
         }
-        AddBooking({ ...MatchedProducts, ...{ Quantity: Btn } });
+        AddBooking({ ...MatchedProducts, ...{ Quantity: Btn, email: user?.email, } });
         setBtn(0)
     }
     return (

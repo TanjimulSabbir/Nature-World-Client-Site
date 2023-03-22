@@ -27,6 +27,7 @@ function AuthProvider({ children }) {
     if (CreateLoading || LoginLoading) {
         return <PageLoading></PageLoading>
     }
+
     // Create Jwt Token
     const CreateJwtToken = async (UserData) => {
         try {
@@ -35,7 +36,7 @@ function AuthProvider({ children }) {
             if (res.status === 201) {
                 localStorage.setItem("accessToken", res.data.data);
                 navigate(from, { replace: true });
-                // AddLoginUser(UserData);
+                AddLoginUser(UserData);
             }
         } catch (error) {
             const errorStatus = [401, 403].includes(error.response.data.status);
@@ -85,7 +86,6 @@ function AuthProvider({ children }) {
             else {
                 toast.error(error.response.data.message)
             }
-
         }
     }
     const EmailLogin = async (data) => {

@@ -3,8 +3,9 @@ import { useContext } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useQuery } from 'react-query';
 import { toast } from 'react-toastify';
-import auth from '../Firebase/Firebase.init.config';
-import { AuthContext } from '../Pages/AuthContext/AuthProvider';
+import { AuthContext } from '../Components/AuthContext/AuthProvider';
+import auth from '../Components/Firebase/Firebase.init.config';
+
 
 
 function useAllUser() {
@@ -16,7 +17,8 @@ function useAllUser() {
             try {
                 if (user) {
                     axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-                    const res = await axios.get(`https://tourist-booking-server.vercel.app/alluser/${user?.email}`)
+                    const res = await axios.get(`http://localhost:5000/alluser/${user.email}`)
+                    console.log(res)
                     if (res.status === 200) {
                         return res.data.data
                     }

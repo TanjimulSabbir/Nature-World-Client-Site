@@ -12,6 +12,8 @@ import UpdateProfile from "../Shared/UpdateProfile/UpdateProfile";
 import ShopDetails from "../../Pages/ShopDetails/ShopDetails";
 import Booking from "../../Pages/Booking/Booking";
 import Payment from "../../Pages/Payment/Payment";
+import Dashboard from "../../Pages/Dashboard/Dashboard";
+import AllUser from "../../Pages/Dashboard/AllUser";
 
 const Router = createBrowserRouter([
     {
@@ -65,7 +67,18 @@ const Router = createBrowserRouter([
             {
                 path: '/payment',
                 element: <Payment></Payment>
-            }
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>,
+                children: [
+                    {
+                        path: '/dashboard/alluser',
+                        element: <AllUser></AllUser>
+                    }
+                ]
+            },
+
         ]
     }
 ])

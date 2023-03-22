@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Products from "../../JsonFiles/Products.json"
 import { AiOutlineHeart } from "react-icons/ai";
 import { BsTrash3 } from "react-icons/bs";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,27 +8,38 @@ import useBooking from '../../Hooks/useBooking';
 import PageLoading from '../../Components/Shared/Loading/Loading';
 import { DBContext } from '../../Components/DataBaseContext/UserDBProvider';
 import { MdDone } from "react-icons/md";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Components/Firebase/Firebase.init.config';
 
 
 const Booking = () => {
-    const { BookingDelete } = useContext(DBContext)
+    const [user] = useAuthState(auth);
+    const { BookingDelete } = useContext(DBContext);
     // const getLocalItems = localStorage.getItem("AddToCart");
     // const ParseItems = JSON.parse(getLocalItems);
-    const [AllBooking, isLoading] = useBooking()
-    console.log(AllBooking, "AllBooking")
+    const [AllBooking, isLoading] = useBooking();
 
     if (isLoading) {
         return <PageLoading></PageLoading>
     }
 
-    // if (!AllBooking?.length) {
-    //     return <div className="min-h-screen flex justify-center items-center bg-green-100">
-    //         <div>
-    //             <h1>You haven't order yet.</h1>
-    //             <Link className='mt-6 Btn-Outline' to="/shop"><FontAwesomeIcon icon={faArrowCircleLeft} className="mr-2"></FontAwesomeIcon> Back To Shop</Link>
-    //         </div>
-    //     </div>
-    // }
+    if (!user) {
+        return <div className="min-h-screen flex justify-center items-center bg-green-100">
+            <div>
+                <h1 className='ml-6'>No User Logged In</h1>
+                <Link className='mt-6 Btn-Outline' to="/login"><FontAwesomeIcon icon={faArrowCircleLeft} className="mr-2"></FontAwesomeIcon> Back To Login</Link>
+            </div>
+        </div>
+    }
+    if (user && !AllBooking?.length) {
+        return <div className="min-h-screen flex justify-center items-center bg-green-100">
+            <div>
+                <h1>You haven't order yet.</h1>
+                <Link className='mt-6 Btn-Outline' to="/shop"><FontAwesomeIcon icon={faArrowCircleLeft} className="mr-2"></FontAwesomeIcon> Back To Shop</Link>
+            </div>
+        </div>
+    }
+
 
     // let IntigrateItems = []
     // const showItem = Products.filter(product => {

@@ -11,7 +11,8 @@ const JwtRoute = ({ children }) => {
     if (user) {
         axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
         const res = axios.get(`http://localhost:5000/home/${user?.email}`)
-        console.log(res, "Server Response")
+
+
         if (res.status === 200) {
             console.log(res)
             return children;

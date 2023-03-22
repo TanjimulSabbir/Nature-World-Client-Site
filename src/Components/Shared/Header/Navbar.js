@@ -14,13 +14,14 @@ const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
     const [sidebar, setSidebar] = useState(false)
 
-    const btnStyle = "font-semibold transition hover:bg-transparent hover:Text-Primary duration-100"
+    const btnStyle = "font-semibold transition hover:bg-primary hover:md:bg-transparent hover:text-white hover:md:Text-Primary duration-100 cursor-pointer"
     const Menu = <>
         <li><NavLink className={btnStyle} to="/">Home</NavLink></li>
         <li><NavLink className={btnStyle} to="/about">About Us</NavLink></li>
         <li><NavLink className={btnStyle} to="/shop">Shop</NavLink></li>
         <li><NavLink className={btnStyle} to="/blog">Blog</NavLink></li>
         <li><NavLink className={btnStyle} to="/contact">Contact Us</NavLink></li>
+        <li><NavLink className={btnStyle} to="/dashboard">Dashboard</NavLink></li>
         <li><NavLink className={btnStyle} to="#"><ShoppingCart /></NavLink></li>
         <li><NavLink className={`text-2xl ${btnStyle}`} to="#"><BiSearch /></NavLink></li>
     </>
@@ -34,7 +35,7 @@ const Navbar = () => {
                             sidebar ? <GrClose className='text-2xl' /> : <FiAlignJustify className='text-2xl' />
                         }
                     </label>
-                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-full">
+                    <ul onClick={() => setSidebar(false)} tabIndex={0} className={`menu menu-compact dropdown-content mt-2 p-2 -ml-2 shadow-2xl bg-base-100 rounded-box w-[300px] min-h-screen ${sidebar ? "block" : "hidden"}`}>
                         {Menu}
                     </ul>
                 </div>
