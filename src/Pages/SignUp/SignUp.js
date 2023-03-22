@@ -4,7 +4,7 @@ import SignUpForm from "./SignUpForm";
 
 
 const SignUp = () => {
-  useTitle('signUp')
+  useTitle('SignUp')
   return (
     <div>
       <SignUpForm />

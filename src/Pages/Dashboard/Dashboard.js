@@ -1,12 +1,12 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { TiThLargeOutline } from "react-icons/ti";
 import auth from '../../Components/Firebase/Firebase.init.config';
-import { DBContext } from '../../Components/DataBaseContext/UserDBProvider';
-import useBooking from '../../Hooks/useBooking';
+import useTitle from '../../Hooks/useTitle';
 
 const Dashboard = () => {
+    useTitle("Dashboard")
     const [isOpenMenu, setIsOpenMenu] = useState(false);
     const [user] = useAuthState(auth)
     const location = useLocation();

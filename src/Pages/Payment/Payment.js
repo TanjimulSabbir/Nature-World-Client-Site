@@ -1,6 +1,8 @@
 import React from 'react';
+import useTitle from '../../Hooks/useTitle';
 
 const Payment = () => {
+    useTitle('Payment')
     return (
         <div className='min-h-screen bg-blue-300 flex justify-center items-center'>
             <h1 className='font-diplayFair font-bold'>

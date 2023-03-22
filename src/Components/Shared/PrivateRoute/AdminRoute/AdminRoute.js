@@ -7,7 +7,7 @@ const AdminRoute = ({ children }) => {
     const AdminUser = ["tanjimulislamsabbir02@gmail.com", "tanzimulislamsabbir@gmail.com"]
     const navigate = useNavigate()
 
-    if (AdminUser.includes(user?.email)) {
+    if (AdminUser.includes(user.email)) {
         return children;
     }
     else {

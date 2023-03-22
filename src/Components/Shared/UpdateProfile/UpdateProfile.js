@@ -2,12 +2,14 @@ import React, { useContext, useState } from 'react'
 import { useAuthState, useDeleteUser, useSendEmailVerification, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import useTitle from '../../../Hooks/useTitle';
 import { DBContext } from '../../DataBaseContext/UserDBProvider';
 import auth from '../../Firebase/Firebase.init.config';
 import PageLoading from '../Loading/Loading';
 import ModalUpdatePassword from './ModalUpdatePassword';
 
 function UpdateProfile() {
+    useTitle("UpdateProfile")
     const [updateProfile, updatingLoading, UpdatinError] = useUpdateProfile(auth);
     const [deleteUser, DeleteLoading, DeleteError] = useDeleteUser(auth);
     const [sendEmailVerification, sending, VarificationError] = useSendEmailVerification(auth);

@@ -12,7 +12,7 @@ import { GrClose } from 'react-icons/gr';
 
 const Navbar = () => {
     const [user, loading, error] = useAuthState(auth);
-    const [sidebar, setSidebar] = useState(false)
+    const [sidebar, setSidebar] = useState(false);
 
     const btnStyle = "font-semibold transition hover:bg-primary hover:md:bg-transparent hover:text-white hover:md:Text-Primary duration-100 cursor-pointer"
     const Menu = <>
@@ -23,7 +23,8 @@ const Navbar = () => {
         <li><NavLink className={btnStyle} to="/contact">Contact Us</NavLink></li>
         <li><NavLink className={btnStyle} to="/dashboard">Dashboard</NavLink></li>
         <li><NavLink className={btnStyle} to="#"><ShoppingCart /></NavLink></li>
-        <li><NavLink className={`text-2xl ${btnStyle}`} to="#"><BiSearch /></NavLink></li>
+        <li><NavLink className={`text-2xl ${btnStyle}`} to="#"><BiSearch />
+        </NavLink></li>
     </>
 
     return (

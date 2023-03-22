@@ -1,9 +1,11 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import Breadcumb from '../../../Components/Shared/Breadcumb';
+import useTitle from '../../../Hooks/useTitle';
 import News from "../../../JsonFiles/News.json"
 
 const BlogDetails = () => {
+    useTitle("BlogDetails")
     const params = useParams()
     const MatchedBlog = News.find(blog => blog.title === params.id)
     const { title, img, description } = MatchedBlog;

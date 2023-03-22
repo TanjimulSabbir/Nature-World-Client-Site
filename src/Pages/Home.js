@@ -1,4 +1,5 @@
 import React from 'react';
+import useTitle from '../Hooks/useTitle';
 import Banner01 from './Home/Banner01/Banner01';
 import Banner02 from './Home/Banner02/Banner02';
 import Banner03 from './Home/Banner03/Banner03';
@@ -9,7 +10,7 @@ import Banner07 from './Home/Banner07/Banner07';
 import Banner08 from './Home/Banner08/Banner08';
 
 const Home = () => {
-
+    useTitle("Home")
     return (
         <div>
             <Banner01></Banner01>

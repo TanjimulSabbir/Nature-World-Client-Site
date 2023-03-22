@@ -10,9 +10,11 @@ import { DBContext } from '../../Components/DataBaseContext/UserDBProvider';
 import { MdDone } from "react-icons/md";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Components/Firebase/Firebase.init.config';
+import useTitle from '../../Hooks/useTitle';
 
 
 const Booking = () => {
+    useTitle('Booking')
     const [user] = useAuthState(auth);
     const { BookingDelete } = useContext(DBContext);
     // const getLocalItems = localStorage.getItem("AddToCart");

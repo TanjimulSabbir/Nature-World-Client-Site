@@ -14,6 +14,7 @@ import Booking from "../../Pages/Booking/Booking";
 import Payment from "../../Pages/Payment/Payment";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import AllUser from "../../Pages/Dashboard/AllUser";
+import AdminRoute from "../Shared/PrivateRoute/AdminRoute/AdminRoute";
 
 const Router = createBrowserRouter([
     {
@@ -74,7 +75,7 @@ const Router = createBrowserRouter([
                 children: [
                     {
                         path: '/dashboard/alluser',
-                        element: <AllUser></AllUser>
+                        element: <AdminRoute><AllUser></AllUser></AdminRoute>
                     }
                 ]
             },
