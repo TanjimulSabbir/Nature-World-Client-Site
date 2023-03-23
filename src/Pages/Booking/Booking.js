@@ -11,6 +11,7 @@ import { MdDone } from "react-icons/md";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../Components/Firebase/Firebase.init.config';
 import useTitle from '../../Hooks/useTitle';
+import { toast } from 'react-toastify';
 
 
 const Booking = () => {
@@ -69,7 +70,10 @@ const Booking = () => {
     const Tax = Number((TotalPrice * .15)?.toFixed(3));
     const PaymentAmout = Number((SubTotal + Shipping + Tax) - Discount)?.toFixed(4)
 
-    console.log(TotalPrice, TotalItems, "TotalPrice", "TotalItems")
+    const addToWish = (id) => {
+        toast.success("Added To WishList. But You can not be able to show this product on list.")
+    }
+
 
     return (
         <div className="UniversalPadding py-24 bg-green-50 mid-lg:flex min-h-screen">
@@ -78,9 +82,9 @@ const Booking = () => {
                 <h1 className='text-xl font-extrabold mb-10'>Recently, You have Ordered this Products!</h1>
                 {AllBooking?.map(item => {
                     const { id, title, img, } = item;
-                    console.log(id, "items")
                     const Price = parseFloat(item.price.split('$')[1]);
                     const Quantity = parseFloat(item.Quantity);
+
                     if (isLoading) {
                         return <PageLoading></PageLoading>
                     }
@@ -114,7 +118,7 @@ const Booking = () => {
 
                                 <div className='mt-8 flex space-x-14 mid-lg:space-x-4 justify-start items-center'>
 
-                                    <button className='btn flex space-x-1 btn-sm'>
+                                    <button onClick={() => addToWish(id)} className='btn flex space-x-1 btn-sm'>
                                         <AiOutlineHeart className='text-lg text-gray-100 inline-block' /> <span>  Move to Wishlist</span>
                                     </button>
                                     <BsTrash3 onClick={() => BookingDelete({ id, title })} className='border text-red-600 px-2 shadow-md rounded-md text-4xl inline-block cursor-pointer' />

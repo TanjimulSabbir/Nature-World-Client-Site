@@ -19,7 +19,7 @@ const Banner03 = () => {
                     {
                         showData?.map(product => {
                             return (
-                                <div key={product.title} onClick={() => navigate("/shop")}
+                                <div key={product.id} onClick={() => navigate("/shop")}
                                     className='relative Bg-light-green mt-14 pb-14 flex justify-center items-center border border-[#00683821] rounded-lg w-full 
                                     h-[600px] cursor-pointer'>
                                     <div>

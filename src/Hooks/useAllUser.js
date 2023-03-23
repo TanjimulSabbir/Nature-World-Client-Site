@@ -18,7 +18,6 @@ function useAllUser() {
                 if (user) {
                     axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
                     const res = await axios.get(`http://localhost:5000/alluser/${user.email}`)
-                    console.log(res)
                     if (res.status === 200) {
                         return res.data.data
                     }

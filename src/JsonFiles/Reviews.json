@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Wanda-C.-Gutierrez.png",
         "customerName": "John Smith",
         "title": "Beautiful and healthy plants!",
@@ -7,6 +8,7 @@
         "rating": 5
     },
     {
+        "id": 2,
         "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Daniel-J.-Woodley.png",
         "customerName": "Jane Doe",
         "title": "Excellent customer service",
@@ -14,6 +16,7 @@
         "rating": 4.5
     },
     {
+        "id": 3,
         "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Frances-C.-Borel.png",
         "customerName": "Mark Johnson",
         "title": "Great selection and quality",
@@ -21,6 +24,7 @@
         "rating": 4
     },
     {
+        "id": 4,
         "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Frances-C.-Borel.png",
         "customerName": "Sarah Lee",
         "title": "Fast shipping and well-packaged",
@@ -28,6 +32,7 @@
         "rating": 4.5
     },
     {
+        "id": 5,
         "img": "https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/Frances-C.-Borel.png",
         "customerName": "David Kim",
         "title": "Healthy and happy plants",

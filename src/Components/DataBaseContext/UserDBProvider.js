@@ -56,7 +56,6 @@ const UserDBProvider = ({ children }) => {
     // Booking Delete from Booking_Form
     const BookingDelete = async ({ id, title }) => {
         const conformDelete = window.confirm("Are you sure to Delete this Booking?");
-        toast(id)
         if (!conformDelete) {
             return toast('😍')
         }

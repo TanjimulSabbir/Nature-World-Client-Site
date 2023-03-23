@@ -10,7 +10,6 @@ const Banner05 = () => {
     const navigate = useNavigate();
     let AllProducts
     const path = location.pathname
-    console.log(path, "path")
     if (path === "/") {
         AllProducts = Products.slice(0, 8)
     } else {
@@ -30,7 +29,7 @@ const Banner05 = () => {
                     {
                         AllProducts.map(product => {
                             return (
-                                <div key={product.title} onClick={() => navigate("/shop")}
+                                <div key={product.id} onClick={() => navigate("/shop")}
                                     className='relative Bg-light-green mt-14 pb-14 flex justify-center items-center border border-[#00683821] rounded-lg w-full 
                                     h-[600px] cursor-pointer'>
                                     <div>

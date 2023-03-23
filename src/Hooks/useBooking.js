@@ -19,7 +19,6 @@ const useBooking = () => {
                 if (user) {
                     axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
                     const response = await axios.get(`http://localhost:5000/booking/${user.email}`)
-                    console.log(response.data.data, "Booking Data")
                     return response.data.data;
                 }
             } catch (error) {

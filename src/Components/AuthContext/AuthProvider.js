@@ -12,7 +12,7 @@ export const AuthContext = createContext();
 function AuthProvider({ children }) {
     const location = useLocation();
     const navigate = useNavigate();
-    const from = location?.state?.from.pathname || "/";
+    const from = location?.state?.from?.pathname || "/";
     const [user] = useAuthState(auth)
     // Create Email User
     const [createUserWithEmailAndPassword, EmailUser, CreateLoading, CreateError] =
@@ -31,12 +31,12 @@ function AuthProvider({ children }) {
     // Create Jwt Token
     const CreateJwtToken = async (UserData) => {
         try {
+            // DOn't use here 'await', because await exucute code ahead as for addLoginUser Get before setted 'accessToken'
             const res = await axios.post(`http://localhost:5000/jwt`,
                 { UserData });
             if (res.status === 201) {
                 localStorage.setItem("accessToken", res.data.data);
-                navigate(from, { replace: true });
-                AddLoginUser(UserData);
+                await AddLoginUser(UserData)
             }
         } catch (error) {
             const errorStatus = [401, 403].includes(error.response.data.status);
@@ -73,6 +73,9 @@ function AuthProvider({ children }) {
             if (res.status === 201) {
                 return;
             }
+            if (res.status === 409) {
+                return navigate(from, { replace: true });
+            }
         } catch (error) {
             const errorResponse = error.response.data.status;
             if (errorResponse === 409) {
@@ -97,7 +100,6 @@ function AuthProvider({ children }) {
                     name: res.user.displayName,
                     email: res.user.email
                 }
-                console.log(UserData, "userData")
                 if (!UserData) {
                     return;
                 }

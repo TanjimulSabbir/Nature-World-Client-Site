@@ -16,10 +16,8 @@ const Banner03 = () => {
         const endIndex = CurrentPage * ProductPerPage
         const startIndex = endIndex - ProductPerPage
         setShowProducts(Products?.slice(startIndex, endIndex))
-        console.log(showProducts, startIndex, endIndex, "startIndex and EndIndex")
     }, [CurrentPage])
 
-    console.log(showProducts, CurrentPage, "showProducts, CurrentPage")
     return (
         <div className='Bg-Gradient UniversalPadding py-24'>
             <div className='mt-10'>

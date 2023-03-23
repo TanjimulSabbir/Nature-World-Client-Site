@@ -38,10 +38,10 @@ const AllUser = () => {
     if (isLoading) {
         return <PageLoading></PageLoading>
     }
-    console.log(AllUser, "AllUser")
-    // if (!AllUser?.length) {
-    //     return <h1 className='h-screen font-diplayFair font-bold bg-blue-200 flex justify-center items-center'>No User Found</h1>
-    // }
+
+    if (!AllUser?.length) {
+        return <h1 className='h-screen font-diplayFair font-bold bg-blue-200 flex justify-center items-center'>No User Found</h1>
+    }
     return (
         <div className='py-10'>
             <div className="mx-10 mid-lg:mx-0">
