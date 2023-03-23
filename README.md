@@ -1,17 +1,45 @@
-# Nature-World
-#p This is an e-commerce website, about plant. Here are a lot of plants, people can order their chosen plants. I make this project by MERN stack technologies.
- ## feathers
+# Naute World
+Naute World is an e-commerce website dedicated to plant lovers. Our mission is to provide high-quality plants and gardening supplies at affordable prices. Our website is built using the MERN (MongoDB, Express, React, Node.js) stack technologies, which provides a seamless and responsive user experience.
 
- ##### various types plants
- ##### Chose and Order 
- ##### Order cab be increase and decrease and then add to cart
- ##### order can be see from view carts
- ##### order can be undone and beside order products have a short summary about added products
- ##### order can be payment by payment button(now this section is unavailable)
+### Features
+-Browse and purchase a wide range of plants and gardening supplies
+-Secure user authentication and account management
+-Search and filter products based on categories and keywords
+-Add products to a shopping cart and checkout securely
+-Track order status and shipping information
 
+### Technologies Used
 
- # What have i used here
+#### Front-end Technologies
+-ReactJS
+-React-Form-Hook
+-React-Query
+-React-Icon
+-
+#### Authentication
+-Firebase
+-Firebase-React-Hooks
 
- # Front-end Techonologies
+#### Back-end Technologies
+-Node.js
+-Express.js
+-MongoDB
+-Cors
+#### Getting Started
 
- ##### React, React-form-hooks, Tailwind, DaisyUI, React-icons, React-
+#### Prerequisites
+-Node.js (v14 or higher)
+-MongoDB (v4 or higher)
+-npm (v7 or higher)
+
+#### Clone the repository
+##### Install server-side dependencies
+##### Install client-side dependencies
+##### Start the server
+##### Start the client
+Access the application by visiting http://localhost:3000
+
+#### Description
+Naute World is the perfect place for plant enthusiasts to shop for their favorite indoor and outdoor plants. With a vast collection of plants from all over the world, customers can browse through the website and find the perfect plant for their home or office. The website offers a user-friendly interface that allows customers to filter plants based on their requirements, such as size, color, and price.
+
+Customers can create an account and save their favorite plants for future reference. The website offers secure payment options and a reliable shipping system to ensure that customers receive their plants in excellent condition. The website also offers a blog section that provides valuable information about plant care and maintenance.
