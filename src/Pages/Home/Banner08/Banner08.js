@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Banner08 = () => {
@@ -8,7 +7,7 @@ const Banner08 = () => {
             <div className="relative mx-auto">
                 <img className='w-full mid-lg:w-[60%] mid-lg:rounded-xl mx-auto' src='https://templatekits.techeshta.com/nature-world/wp-content/uploads/sites/21/2023/01/news-latter-background.png' alt="" />
 
-                <div className="absolute inset-0 p-10 flex justify-center items-center 
+                <div className="absolute inset-0 p-5 md:p-10 flex justify-center items-center 
                 mid-lg:top-1/4 md:w-4/5 mid-lg:w-3/5 mx-auto">
                     <div>
                         <div className="w-full">

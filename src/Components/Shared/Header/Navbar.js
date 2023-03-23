@@ -11,7 +11,7 @@ import { GrClose } from 'react-icons/gr';
 
 
 const Navbar = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [search, setSearch] = useState(false)
     const [sidebar, setSidebar] = useState(false);
 
     const btnStyle = "font-semibold transition hover:bg-primary hover:md:bg-transparent hover:text-white hover:md:Text-Primary duration-100 cursor-pointer"
@@ -23,12 +23,12 @@ const Navbar = () => {
         <li><NavLink className={btnStyle} to="/contact">Contact Us</NavLink></li>
         <li><NavLink className={btnStyle} to="/dashboard">Dashboard</NavLink></li>
         <li><NavLink className={btnStyle} to="#"><ShoppingCart /></NavLink></li>
-        <li><NavLink className={`text-2xl ${btnStyle}`} to="#"><BiSearch />
+        <li><NavLink onClick={() => setSearch(!search)} className={`text-2xl ${btnStyle}`} to="#"><BiSearch />
         </NavLink></li>
     </>
 
     return (
-        <div className="navbar bg-white">
+        <div className="navbar bg-white relative">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label onClick={() => setSidebar(!sidebar)} tabIndex={0} className="btn btn-ghost mid-lg:hidden">
@@ -48,6 +48,21 @@ const Navbar = () => {
                 </ul>
             </div>
             <NavbarAvator></NavbarAvator>
+
+            {search &&
+                <div className='absolute top-0 inset-0 flex justify-center items-center w-screen min-h-screen bg-black bg-opacity-80'>
+
+                    <div className="form-control">
+                        <div className="input-group">
+                            <input type="text" placeholder="Search…" className="input input-bordered" />
+                            <button className="btn btn-square">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <GrClose title='close' onClick={() => setSearch(false)} className='text-3xl p-1 inset-0 mb-20 cursor-pointer rounded-full bg-white' />
+                </div>
+            }
         </div>
     )
 };

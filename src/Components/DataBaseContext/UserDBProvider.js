@@ -40,9 +40,7 @@ const UserDBProvider = ({ children }) => {
         }
         try {
             axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-            toast("Request Accepted")
             const response = await axios.post(`http://localhost:5000/booking/${user.email}`, { UserData })
-            console.log(response, "response")
             if (response.status === 200) {
                 toast.success(response.data.message);
             }
