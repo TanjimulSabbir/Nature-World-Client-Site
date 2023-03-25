@@ -21,7 +21,7 @@ const AllUser = () => {
             }
             axios.defaults.headers.common['authorization'] =
                 `Bearer ${localStorage.getItem('accessToken')}`;
-            const res = await axios.delete(`http://localhost:5000/alluser/${user?.email}`, { data: { email } });
+            const res = await axios.delete(`https://nature-world-server-site-tanjimulsabbir.vercel.app/alluser/${user?.email}`, { data: { email } });
             if (res.status === 200) {
                 toast.success(res.data.message)
                 return refetch();

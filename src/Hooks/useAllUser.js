@@ -17,7 +17,7 @@ function useAllUser() {
             try {
                 if (user) {
                     axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-                    const res = await axios.get(`http://localhost:5000/alluser/${user.email}`)
+                    const res = await axios.get(`https://nature-world-server-site-tanjimulsabbir.vercel.app/alluser/${user.email}`)
                     if (res.status === 200) {
                         return res.data.data
                     }

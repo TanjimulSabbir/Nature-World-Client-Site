@@ -10,7 +10,7 @@ const JwtRoute = () => {
 
     if (user) {
         axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-        const res = axios.get(`http://localhost:5000/${user?.email}`)
+        const res = axios.get(`https://nature-world-server-site-tanjimulsabbir.vercel.app/${user?.email}`)
         if (res.status !== 200) {
             return UserSignOut()
         }

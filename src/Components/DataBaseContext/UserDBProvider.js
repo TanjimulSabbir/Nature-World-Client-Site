@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { createContext, useContext, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { AuthContext } from '../AuthContext/AuthProvider'
 import auth from '../Firebase/Firebase.init.config'
@@ -40,7 +40,7 @@ const UserDBProvider = ({ children }) => {
         }
         try {
             axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-            const response = await axios.post(`http://localhost:5000/booking/${user.email}`, { UserData })
+            const response = await axios.post(`https://nature-world-server-site-tanjimulsabbir.vercel.app/booking/${user.email}`, { UserData })
             if (response.status === 200) {
                 toast.success(response.data.message);
             }
@@ -61,11 +61,11 @@ const UserDBProvider = ({ children }) => {
         }
         try {
             axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-            const response = await axios.delete(`http://localhost:5000/booking/${user?.email}`,
+            const response = await axios.delete(`https://nature-world-server-site-tanjimulsabbir.vercel.app/booking/${user?.email}`,
                 { data: { id: id } })
             if (response.status === 200) {
                 toast.success(`${title} Deleted Successfully`);
-                return navigate(from, { replace: true })
+                return <Navigate state={{ from: location }} replace />
             }
         } catch (error) {
             const errorStatus = [401, 403].includes(error.response.data.status);
@@ -98,7 +98,7 @@ const UserDBProvider = ({ children }) => {
 
                 <div tabIndex={0} className={`card dropdown-content text-black bg-green-600 shadow-2xl rounded-box w-64 ${isOpen ? "block" : "hidden"}`}>
                     <div className="card-body">
-                        <h2 className="card-title font-diplayFair font-bold">{AllBooking.length} {AllBooking.length > 1 && 'items' || 'item'}</h2>
+                        <h2 className="card-title font-lato font-bold">{AllBooking.length} {AllBooking.length > 1 && 'items' || 'item'}</h2>
                         <p className='font-openSans '>Your Total Amount is ${TotalPrice}.</p>
                         <p className='font-openSans '>You have Added to Cart {AllBooking.length} Product {AllBooking.length > 1 && 's'} and Total {TotalItems} Product Items.</p>
                     </div>

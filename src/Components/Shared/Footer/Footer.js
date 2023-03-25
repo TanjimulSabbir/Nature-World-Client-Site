@@ -41,7 +41,7 @@ const Footer = () => {
                     </label>
                     <div className="relative">
                         <input type="text" placeholder="username@site.com" className="input input-bordered w-full pr-16 mb-10" />
-                        <Link to="/" className="Btn-Primary" >Subscribe</Link>
+                        <Link to="/contact" className="Btn-Primary" >Subscribe</Link>
                     </div>
                 </div>
             </div>

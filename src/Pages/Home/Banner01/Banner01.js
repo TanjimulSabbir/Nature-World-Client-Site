@@ -24,7 +24,7 @@ const Banner01 = () => {
                         <p className='mt-16'>Join the plant revolution and discover why more and more people are turning to nature to enhance their lives</p>
 
                         <div className='mt-8 space-x-3'>
-                            <Link to="/order" className='Btn-Primary'>Order Now <HiArrowSmRight className='ml-1 text-xl' /> </Link>
+                            <Link to="/shop" className='Btn-Primary'>Order Now <HiArrowSmRight className='ml-1 text-xl' /> </Link>
                             <button onClick={() => setShow(!show)} className='Btn-Outline'>Watch Video <MdSlowMotionVideo className='ml-1 text-xl font-bold' /></button>
                         </div>
                     </div>

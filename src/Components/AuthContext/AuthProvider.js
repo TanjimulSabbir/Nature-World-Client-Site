@@ -32,7 +32,7 @@ function AuthProvider({ children }) {
     const CreateJwtToken = async (UserData) => {
         try {
             // DOn't use here 'await', because await exucute code ahead as for addLoginUser Get before setted 'accessToken'
-            const res = await axios.post(`http://localhost:5000/jwt`,
+            const res = await axios.post(`https://nature-world-server-site-tanjimulsabbir.vercel.app/jwt`,
                 { UserData });
             if (res.status === 201) {
                 localStorage.setItem("accessToken", res.data.data);
@@ -69,7 +69,7 @@ function AuthProvider({ children }) {
     async function AddLoginUser(UserData) {
         try {
             axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-            const res = await axios.post(`http://localhost:5000/alluser/${UserData.email}`, { UserData })
+            const res = await axios.post(`https://nature-world-server-site-tanjimulsabbir.vercel.app/alluser/${UserData.email}`, { UserData })
             if (res.status === 201) {
                 return;
             }

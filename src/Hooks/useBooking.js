@@ -18,7 +18,7 @@ const useBooking = () => {
             try {
                 if (user) {
                     axios.defaults.headers.common['authorization'] = `Bearer ${localStorage.getItem('accessToken')}`;
-                    const response = await axios.get(`http://localhost:5000/booking/${user.email}`)
+                    const response = await axios.get(`https://nature-world-server-site-tanjimulsabbir.vercel.app/booking/${user.email}`)
                     return response.data.data;
                 }
             } catch (error) {

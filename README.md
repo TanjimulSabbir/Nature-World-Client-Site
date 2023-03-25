@@ -28,7 +28,7 @@ Naute World is an e-commerce website dedicated to plant lovers. Our mission is t
 - Express.js
 - MongoDB
 - Cors
-- Nodemone
+- Json Web Token
 #### Getting Started
 
 #### Prerequisites
@@ -49,7 +49,7 @@ Naute World is an e-commerce website dedicated to plant lovers. Our mission is t
 Access the application by visiting http://localhost:3000
 
 #### Description
-Naute World is the perfect place for plant enthusiasts to shop for their favorite indoor and outdoor plants. With a vast collection of plants from all over the world, customers can browse through the website and find the perfect plant for their home or office. The website offers a user-friendly interface that allows customers to filter plants based on their requirements, such as size, color, and price.
+Nature World is the perfect place for plant enthusiasts to shop for their favorite indoor and outdoor plants. With a vast collection of plants from all over the world, customers can browse through the website and find the perfect plant for their home or office. The website offers a user-friendly interface that allows customers to filter plants based on their requirements, such as size, color, and price.
 
 Customers can create an account and save their favorite plants for future reference. The website offers secure payment options and a reliable shipping system to ensure that customers receive their plants in excellent condition. The website also offers a blog section that provides valuable information about plant care and maintenance.
 

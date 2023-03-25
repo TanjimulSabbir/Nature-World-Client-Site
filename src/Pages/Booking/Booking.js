@@ -79,7 +79,7 @@ const Booking = () => {
         <div className="UniversalPadding py-24 bg-green-50 mid-lg:flex min-h-screen">
 
             <div className='grid grid-cols-1 space-y-16 w-full mid-lg:w-7/12'>
-                <h1 className='text-xl font-extrabold mb-10'>Recently, You have Ordered this Products!</h1>
+                <h1 className='text-xl font-extrabold mb-10'>Recently, You have Ordered this Products.</h1>
                 {AllBooking?.map(item => {
                     const { id, title, img, } = item;
                     const Price = parseFloat(item.price.split('$')[1]);
